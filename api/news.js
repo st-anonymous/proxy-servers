@@ -1,9 +1,12 @@
 import axios from "axios";
-import cors from "micro-cors";
 
 const news = async (req, res) => {
   const { query } = req;
   const page = query.page;
+
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   const options = {
     method: "GET",
@@ -23,4 +26,4 @@ const news = async (req, res) => {
   }
 };
 
-export default cors(news);
+export default news;
