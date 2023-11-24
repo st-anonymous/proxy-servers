@@ -14,9 +14,9 @@ const news = async (req, res) => {
       },
     };
     const response = await axios.request(options);
-    res.status(200).json(response.data);
+    res.json(response.data);
   } catch (error) {
-    res.status(400).json(error);
+    res.json(error);
   }
 };
 
