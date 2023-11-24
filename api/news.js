@@ -1,4 +1,5 @@
 import axios from "axios";
+import cors from "micro-cors";
 
 const news = async (req, res) => {
   const { query } = req;
@@ -22,4 +23,4 @@ const news = async (req, res) => {
   }
 };
 
-export default news;
+export default cors(news);
