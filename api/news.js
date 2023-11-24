@@ -1,4 +1,5 @@
 import axios from "axios";
+import cors from "cors";
 
 const news = async (req, res) => {
   try {
@@ -13,9 +14,9 @@ const news = async (req, res) => {
         "x-api-key": "b6684226df7948ddb6df5ad210a9c9dd",
       },
     };
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    // res.setHeader("Access-Control-Allow-Origin", "*");
+    // res.setHeader("Access-Control-Allow-Methods", "GET");
+    // res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     const response = await axios.request(options);
     res.json(response.data);
   } catch (error) {
@@ -23,4 +24,4 @@ const news = async (req, res) => {
   }
 };
 
-export default news;
+export default cors(news);
